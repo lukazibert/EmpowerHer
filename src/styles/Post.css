@@ -4,9 +4,66 @@
   justify-content: space-around;
   padding: 10px;
   gap: 10px;
-  width: auto;
+  width: 100%;
   height: auto;
   background: #EAE2FF;
   border-radius: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: end;
+  /* padding: 10px; */
+  gap: 10px;
+  width: auto;
+  height: auto;
+}
+
+.user-name {
+  font-family: 'Dosis';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 45px;
+/* color: #FFFFFF; */
+color: black;
+}
+
+.content {
+  font-family: 'Dosis';
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 28px;
+text-align: start;
+color: #000000;
+padding: 10px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.like-comment{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  height: auto;
+}
+
+img{
+  /* width: 40px; */
+  height: 40px;
 }

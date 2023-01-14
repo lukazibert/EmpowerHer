@@ -34,7 +34,16 @@ export default function SearchBar() {
     </div>
   );
 
-  return (
+  const basicSB = (
+    <div className="search-bar">
+      <input type="text" className="" />
+      <div className="search-button">
+        <img src={SearchButton} alt="" className="img-fluid" />
+      </div>
+    </div>
+  );
+
+  const accualSerchBar = (
     <div className="search-bar-bg">
       <div className="search-bar">
         <input type="text" className="" />
@@ -45,9 +54,13 @@ export default function SearchBar() {
       {/* {initialTags} */}
       <div className="d-flex flex-wrap justify-content-around">
         {tags.map((text) => {
-            return <Tag text={text}/>
+          return <Tag text={text} />;
         })}
       </div>
     </div>
+  );
+
+  return (
+    basicSB
   );
 }
