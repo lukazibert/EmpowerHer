@@ -4,17 +4,19 @@ import ProfileIcon from "../assests/user-icon-white.png";
 import CommunityIcon from "../assests/board-white.png";
 import "../styles/AppBar.css";
 export default function AppBar(props) {
+
+
   switch (props.active) {
     case "community":
       return (
         <div className="bg">
           <div className="icon_profile">
-            <img src={ProfileIcon} className="img-fluid" />
+            <img src={ProfileIcon} className="img-fluid" onClick={() => props.setPage("profile")}/>
           </div>
           <div className="title">
             <div className="text">Community</div>
           </div>
-          <div className="icon_support">
+          <div className="icon_support" onClick={() => props.setPage("support")}>
             <img src={SupportIcon} className="img-fluid" />
           </div>
         </div>
@@ -24,9 +26,9 @@ export default function AppBar(props) {
       return (
         <div className="bg">
           <div className="icon_profile">
-            <img src={ProfileIcon} className="img-fluid" />
+            <img src={ProfileIcon} className="img-fluid" onClick={() => props.setPage("profile")}/>
           </div>
-          <div className="icon_community">
+          <div className="icon_community" onClick={() => props.setPage("community")}>
             <img src={CommunityIcon} className="img-fluid" />
           </div>
           <div className="title">
@@ -42,10 +44,10 @@ export default function AppBar(props) {
             <div className="text">Profile</div>
           </div>
           <div className="icon_community">
-            <img src={CommunityIcon} className="img-fluid" />
+            <img src={CommunityIcon} className="img-fluid" onClick={() => props.setPage("community")}/>
           </div>
           <div className="icon_support">
-            <img src={SupportIcon} className="img-fluid" />
+            <img src={SupportIcon} className="img-fluid" onClick={() => props.setPage("support")}/>
           </div>
         </div>
       );

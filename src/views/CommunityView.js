@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 import "../styles/CommunityView.css";
 import { React, useEffect, useState } from "react";
 
-export default function CommunityView() {
+export default function CommunityView(props) {
   const [posts, setPosts] = useState([]);
 
   //on first render fetch data
@@ -14,7 +14,7 @@ export default function CommunityView() {
   }, []);
 
   //set the responce to the post state
-  const fetchData = ()  => {
+  const fetchData = () => {
     const res = [
       {
         id: 1,
@@ -28,25 +28,57 @@ export default function CommunityView() {
     setPosts(res);
 
     //   console.log(posts);
-  }
+  };
 
   //change the like button / like post
   const setLike = (val, id) => {
-    const newState = posts.map(obj => {
-        // 👇️ if id equals 2, update country property
-        if (obj.id == id) {
-          return {...obj, liked: val};
-        }
-  
-        // 👇️ otherwise return object as is
-        return obj;
-      });
-  
-      setPosts(newState);
-  }
+    const newState = posts.map((obj) => {
+      // 👇️ if id equals 2, update country property
+      if (obj.id == id) {
+        return { ...obj, liked: val };
+      }
+
+      // 👇️ otherwise return object as is
+      return obj;
+    });
+
+    setPosts(newState);
+  };
+
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 10;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isRightSwipe) {
+      props.setPage("profile");
+    } else {
+      props.setPage("support");
+    }
+    // console.log("swipe", isLeftSwipe ? "left" : "right");
+    // add your conditional logic here
+  };
 
   return (
-    <div>
+    <div
+      className="screen"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       <div className="view">
         <SearchBar />
         {/* map trought all of the post and post elements */}
