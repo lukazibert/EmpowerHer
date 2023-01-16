@@ -3,14 +3,13 @@ import ProfileIcon from "../components/ProfileIcon";
 import "../styles/SupportView.css";
 import CommentIcon from "../assests/chat.png";
 import { React, useState } from "react";
-import { useSwipeable } from "react-swipeable";
 
 export default function SupportView(props) {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 10;
+  const minSwipeDistance = 100;
 
   const onTouchStart = (e) => {
     setTouchEnd(null); // otherwise the swipe is fired even with usual touch events

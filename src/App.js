@@ -3,6 +3,7 @@ import AppBar from "./components/AppBar";
 import CommunityView from "./views/CommunityView";
 import LoadingView from "./views/LoadingView";
 import SupportView from "./views/SupportView";
+import ProfileView from "./views/ProfileView"
 import { React, useState } from "react";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     setPage(val);
   };
 
+
   const renderPage = () => {
     switch (page) {
       case "community":
@@ -19,7 +21,9 @@ function App() {
         break;
       case "support":
         return <SupportView setPage={changePage}/>;
-
+        break;
+        case "profile":
+        return <ProfileView setPage={changePage}/>;
         break;
       default:
         break;
@@ -28,9 +32,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <LoadingView/> */}
-      {/* <AppBar active="profile"/> */}
-      {/* <CommunityView/> */}
       <AppBar active={page} setPage={changePage} />
       {renderPage()}
     </div>

@@ -1,11 +1,10 @@
 .bg {
+  /* position: absolute; */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 15px 15px 15px;
   justify-content: space-between;
-  /* gap: 25px; */
-
   width: 100vw;
   height: auto;
 

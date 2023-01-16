@@ -1,10 +1,9 @@
-import React from "react";
+import {React, useRef} from "react";
 import SupportIcon from "../assests/mentor-white.png";
 import ProfileIcon from "../assests/user-icon-white.png";
 import CommunityIcon from "../assests/board-white.png";
 import "../styles/AppBar.css";
 export default function AppBar(props) {
-
 
   switch (props.active) {
     case "community":
