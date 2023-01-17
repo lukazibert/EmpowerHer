@@ -1,0 +1,152 @@
+#myStoryRectangle {
+  margin: auto;
+  margin-top: 5%;
+  width: 392px;
+  height: 231px;
+  left: 19px;
+  top: 579px;
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40.3125px;
+  color: #ffffff;
+  background: #c2abff;
+  opacity: 60%;
+  border-radius: 20px;
+}
+
+#userName {
+  /* padding-left: 15%; */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  top: 457px;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 37px;
+  line-height: 54px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
+}
+
+#userIcon {
+  margin-top: 50px;
+}
+
+#text {
+  margin: auto;
+  text-align: center;
+  width: 90;
+  min-width: 300px;
+  max-width: 600px;
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: black;
+}
+
+.username {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 37px;
+  /* line-height: 54px; */
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.circle-img {
+  width: 274px;
+  height: 274px;
+  border-radius: 50%;
+  background: #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check {
+  height: 20px;
+  bottom: 5px;
+}
+
+.name {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+}
+
+.my-story {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+  height: auto;
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  color: black;
+  /* background: #EAE2FF; */
+  background: #d9d9d9;
+  border-radius: 20px;
+  /* background: #D9D9D9; */
+}
+
+.my-story-title {
+  font-family: 'Dosis';
+font-style: normal;
+font-weight: 400;
+font-size: 52.3392px;
+line-height: 66px;
+color: white;
+}
+
+.my-goals {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+  height: auto;
+  background: #eae2ff;
+  border-radius: 20px;
+}
+
+.my-goals-title {
+  font-family: 'Dosis';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 52.3392px;
+  /* line-height: 66px; */
+  color: white;
+  flex: 1;
+  text-align: center;
+}
+
+.add-button {
+  position: absolute;
+}
+
+.top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}

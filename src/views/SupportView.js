@@ -2,11 +2,31 @@ import SearchBar from "../components/SearchBar";
 import ProfileIcon from "../components/ProfileIcon";
 import "../styles/SupportView.css";
 import CommentIcon from "../assests/chat.png";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
+import ContactsCard from "../components/ContactsCard";
 
 export default function SupportView(props) {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [contacts, setContacts] = useState([]);
+
+  const dummmyContacts = [
+    {
+      id: 0,
+      username: "Rachel Kim",
+      tags: ["Entrepreneur", "CompSci"],
+      mentor: true,
+      lastMessage:
+        "Hey Olivia, just wanted to check in and see how you're doing. Let's catch up soon!",
+    },
+    {
+      id: 1,
+      username: "Sophia Johnson",
+      tags: [],
+      mentor: false,
+      lastMessage: "Hello!",
+    },
+  ];
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
   const minSwipeDistance = 100;
@@ -28,6 +48,14 @@ export default function SupportView(props) {
     // add your conditional logic here
   };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    setContacts(dummmyContacts);
+  };
+
   return (
     <div
       className="screen"
@@ -37,15 +65,17 @@ export default function SupportView(props) {
     >
       <div className="view">
         <SearchBar />
-        <div className="user-card">
-          <div className="d-flex flex-row justify-content-between align-items-center">
-            <div className="user-info">
-              <ProfileIcon mentor={true} />
-              <div className="user-name">Rachel Kim</div>
-            </div>
-            <img src={CommentIcon} alt="" className="" />
-          </div>
-          <div className="d-flex flex-row justify-content-start align-items-center"></div>
+        <div
+          className=""
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "15px",
+          }}
+        >
+          {contacts.map((contact) => {
+            return <ContactsCard contact={contact} />;
+          })}
         </div>
       </div>
     </div>
