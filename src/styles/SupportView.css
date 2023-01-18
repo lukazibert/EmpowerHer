@@ -42,3 +42,16 @@
   /* color: #FFFFFF; */
   color: black;
   }
+
+  .send_message {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 20px;
+    border-radius: 6px;
+  }
