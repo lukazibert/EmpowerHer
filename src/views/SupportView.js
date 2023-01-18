@@ -83,7 +83,10 @@ export default function SupportView(props) {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "15px",
+            gap: "20px",
+            // paddingLeft: "10px"
+            width: "100%",
+            margin: "10px"
           }}
         >
           {contacts.map((contact) => {

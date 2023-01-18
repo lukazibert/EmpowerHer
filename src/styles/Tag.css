@@ -9,7 +9,7 @@
 
   position: relative;
   width: auto;
-  height: 36px;
+  height: 40px;
 
   background: #c2abff;
   border-radius: 50px;
@@ -19,8 +19,8 @@
   font-family: "Dosis";
   font-style: normal;
   font-weight: 400;
-  font-size: 28.1043px;
-  line-height: 36px;
+  font-size: 25px;
+  /* line-height: 36px; */ 
   /* identical to box height */
 
   display: flex;

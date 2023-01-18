@@ -14,8 +14,8 @@ export default function ContactsCard(props) {
         <img src={CommentIcon} alt="" className="" />
       </div>
       <div
-        className="d-flex flex-row justify-content-start align-items-center"
-        style={{ gap: "20px", marginTop: "15px" }}
+        className="d-flex flex-wrap justify-content-start align-items-center"
+        style={{ gap: "0px", marginTop: "15px" }}
       >
         {props.contact.tags.length > 0
           ? props.contact.tags.map((text) => {
