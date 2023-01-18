@@ -80,6 +80,7 @@ export default function SupportView(props) {
         <SearchBar />
         <div
           className=""
+          onClick={() => props.setPage("message")}
           style={{
             display: "flex",
             flexDirection: "column",
