@@ -11,7 +11,7 @@ export default function Post(props) {
 
   return (
     <div className="post" id={props.id}>
-      <div className="user-info">
+      <div className="user-info" onClick={() => props.viewProfile(props.id)}>
         <ProfileIcon mentor={props.mentor} />
         <div className="user-name">{props.username}</div>
       </div>

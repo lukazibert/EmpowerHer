@@ -17,6 +17,17 @@ input {
   background-color: #d2c0ff;
   width: 99%;
   color: white;
+  padding: 0px
+  
+}
+
+::placeholder{
+  color: white;
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35.5707px;
+  line-height: 45px;
 }
 
 input:focus {
@@ -24,6 +35,11 @@ input:focus {
   outline: none;
   color: white;
   width: 99%;
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35.5707px;
+  line-height: 45px;
 }
 
 .search-bar-bg {

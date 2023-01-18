@@ -6,8 +6,10 @@ import { React, useState, useEffect } from "react";
 import ContactsCard from "../components/ContactsCard";
 
 export default function SupportView(props) {
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+  const [touchStartY, setTouchStartY] = useState(null);
+  const [touchEndY, setTouchEndY] = useState(null);
   const [contacts, setContacts] = useState([]);
 
   const dummmyContacts = [
@@ -29,20 +31,31 @@ export default function SupportView(props) {
   ];
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 100;
+  const minSwipeDistance = 50;
 
   const onTouchStart = (e) => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX);
+    setTouchEndX(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStartX(e.targetTouches[0].clientX);
+    setTouchEndY(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStartY(e.targetTouches[0].clientY);
   };
 
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+    setTouchEndY(e.targetTouches[0].clientY);
+  };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
+    const distanceX = touchStartX - touchEndX;
+    const distanceY = touchStartY - touchEndY;
+    if (
+      !touchStartX ||
+      !touchEndX ||
+      Math.abs(distanceX) < Math.abs(distanceY) 
+    )
+      return;
+    const isLeftSwipe = distanceX > minSwipeDistance;
+    const isRightSwipe = distanceX < -minSwipeDistance;
     isRightSwipe ? props.setPage("community") : props.setPage("support");
     // console.log("swipe", isLeftSwipe ? "left" : "right");
     // add your conditional logic here

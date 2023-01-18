@@ -46,7 +46,7 @@ export default function SearchBar() {
   const accualSerchBar = (
     <div className="search-bar-bg">
       <div className="search-bar">
-        <input type="text" className="" />
+        <input type="text" className="" placeholder="Search" />
         <div className="search-button">
           <img src={SearchButton} alt="" className="img-fluid" />
         </div>

@@ -11,15 +11,25 @@ import MessageView from "./views/MessageView.js";
 function App() {
   const [page, setPage] = useState("viewprofile");
   const [appBarHeight, setHeight] = useState(0);
+  const [viewId, setviewId] = useState(null);
 
   const changePage = (val) => {
     setPage(val);
   };
 
+  const viewProfile = (id) => {
+    setviewId(id);
+    setPage("viewprofile");
+  }
+
+  const addUser = () => {
+    setPage("support");
+  }
+
   const renderPage = () => {
     switch (page) {
       case "community":
-        return <CommunityView setPage={changePage} />;
+        return <CommunityView setPage={changePage} viewProfile={viewProfile}/>;
         break;
       case "support":
         return <SupportView setPage={changePage} />;
@@ -28,7 +38,7 @@ function App() {
         return <ProfileView setPage={changePage} />;
         break;
       case "viewprofile":
-        return <ViewProfile setPage={changePage} />;
+        return <ViewProfile setPage={changePage} id={viewId}/>;
         break;
       case "message":
         return <MessageView setPage={changePage} />;
@@ -42,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar active={page} setPage={changePage} setHeight={setHeight} />
+      <AppBar active={page} setPage={changePage} setHeight={setHeight} addUser={addUser}/>
       <div
         className=""
         style={{

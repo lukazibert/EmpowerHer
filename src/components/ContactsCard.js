@@ -27,7 +27,6 @@ export default function ContactsCard(props) {
         className=""
         style={{
           textOverflow: "ellipsis",
-          display: "   -webkit-line-clamp: 2; ",
           textAlign: "start",
           paddingLeft: "15px",
           paddingBottom: "10px",

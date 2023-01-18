@@ -9,24 +9,33 @@ import { React, useState } from "react";
 
 export default function ProfileView(props) {
   //code need to make it posible to swipe between views
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+  const [touchStartY, setTouchStartY] = useState(null);
+  const [touchEndY, setTouchEndY] = useState(null);
 
   // the required distance between touchStart and touchEnd to be detected as a swipe
-  const minSwipeDistance = 100;
+  const minSwipeDistance = 50;
 
   const onTouchStart = (e) => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX);
+    setTouchEndX(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStartX(e.targetTouches[0].clientX);
+    setTouchEndY(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStartY(e.targetTouches[0].clientY);
   };
 
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+    setTouchEndY(e.targetTouches[0].clientY);
+  };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
+    const distanceX = touchStartX - touchEndX;
+    const distanceY = touchStartY - touchEndY;
+    if (!touchStartX || !touchEndX || Math.abs(distanceX) < Math.abs(distanceY))
+      return;
+    const isLeftSwipe = distanceX > minSwipeDistance;
+    const isRightSwipe = distanceX < -minSwipeDistance;
     isRightSwipe ? props.setPage("profile") : props.setPage("community");
     // console.log("swipe", isLeftSwipe ? "left" : "right");
     // add your conditional logic here
@@ -78,7 +87,6 @@ export default function ProfileView(props) {
   let lastCompleatedIdx;
   for (let index = 0; index < userObj.goals.length; index++) {
     if (userObj.goals[index].compleated == false) {
-      console.log(index);
       lastCompleatedIdx = index - 1;
       break;
     }
@@ -109,7 +117,10 @@ export default function ProfileView(props) {
           )}
         </div>
       </div>
-      <div className="d-flex flex-wrap justify-content-around" style={{width: "100%"}}>
+      <div
+        className="d-flex flex-wrap justify-content-around"
+        style={{ width: "100%" }}
+      >
         {userObj.tags.map((tag) => {
           return <Tag text={tag} />;
         })}
