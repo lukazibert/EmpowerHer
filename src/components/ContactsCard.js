@@ -15,7 +15,7 @@ export default function ContactsCard(props) {
       </div>
       <div
         className="d-flex flex-wrap justify-content-start align-items-center"
-        style={{ gap: "0px", marginTop: "15px" }}
+        style={{ gap: "10px", marginTop: "15px" }}
       >
         {props.contact.tags.length > 0
           ? props.contact.tags.map((text) => {

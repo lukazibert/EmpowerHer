@@ -61,14 +61,14 @@ input:focus {
   border-radius: 20px;
 }
 
-.text {
+.text-searchbar {
   font-family: "Dosis";
   font-style: normal;
   font-weight: 400;
   font-size: 35.5707px;
   line-height: 45px;
   /* identical to box height */
-
+  color: white;
   display: flex;
   align-items: center;
 }

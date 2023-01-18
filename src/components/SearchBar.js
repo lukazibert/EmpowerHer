@@ -28,7 +28,7 @@ export default function SearchBar() {
 
   const Unacative = (
     <div className="search-bar" onClick={() => setSearch("active")}>
-      <div className="text">Search</div>
+      <div className="text-searchbar">Search</div>
       <div className="search-button">
         <img src={SearchButton} alt="" className="img-fluid" />
       </div>

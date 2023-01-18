@@ -15,12 +15,12 @@
   border-radius: 50px;
 }
 
-.text {
+.text-tag {
   font-family: "Dosis";
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
-  /* line-height: 36px; */ 
+  line-height: 36px; 
   /* identical to box height */
 
   display: flex;
